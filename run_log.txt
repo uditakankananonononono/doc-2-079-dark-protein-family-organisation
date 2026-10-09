@@ -1,0 +1,7 @@
+cmd: python3 analysis_079.py
+start_utc: 2026-10-09T16:58:58Z
+numpy 2.2.6 pandas 2.3.3 torch 2.14.1+cpu transformers 5.19.0
+Python 3.10.12
+RESULT_JSON {"n": 340, "n_families": 17, "n_dark": 170, "acc": {"E_dark": 0.9823529411764705, "E_char": 0.9941176470588236, "C_dark": 0.7058823529411765, "C_char": 0.6411764705882353}, "G1": {"perm_acc_dark": 0.08235294117647059, "perm_acc_char": 0.06470588235294118, "pass_": true}, "G2": {"acc_dark": 0.9823529411764705, "ci": [0.9647058823529412, 1.0], "pass_": true}, "G3": {"gap_char_minus_dark": 0.01176470588235301, "ci": [-0.0117647058823529, 0.03529411764705881], "pass_": false, "label": "NO-DEFICIT"}, "LABEL": "ORGANISED-NO-DEFICIT"}
+exit: 0
+end_utc: 2026-10-09T16:59:01Z
