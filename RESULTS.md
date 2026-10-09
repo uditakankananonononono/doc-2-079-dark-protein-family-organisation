@@ -1,6 +1,6 @@
 # DOC-2-079 (step 1) RESULTS - review pending (independent gate has not cleared; no claim is final)
 
-Label (set mechanically by analysis_079.py): **ORGANISED-NO-DEFICIT**. G1 pass, G2 pass, G3 fail (no deficit detected). Reported with a large sample-size caveat: only 17 families met the frozen inclusion rule.
+Label (set mechanically by analysis_079.py, registered tag ORGANISED-NO-DEFICIT): **ORGANISED; no deficit detectable (ceiling, 4 errors in 340)**. G1 pass, G2 pass, G3 fail. Only 17 families met the frozen inclusion rule.
 
 | item | value |
 |---|---|
@@ -15,12 +15,13 @@ Label (set mechanically by analysis_079.py): **ORGANISED-NO-DEFICIT**. G1 pass, 
 | composition baseline C, 1-NN (descriptive) | dark 0.706, characterized 0.641 |
 
 ## What this shows and does not show
-- In the 17 families that contain both dark and EC-annotated proteins, ESM-2 nearest neighbours recover the Pfam family for 98% of dark proteins, essentially the same as for characterized ones. No dark-specific deficit was detected, but the test could only rule out gaps larger than about 0.035 (CI upper bound) and both groups sit near the ceiling.
-- Ceiling and redundancy: no redundancy filter was applied (as registered). Within a Pfam family, near-identical homologs make 1-NN easy for both groups, so 0.98 reflects close relatives being present, not how well embeddings place a protein with no close relative. The study was not designed to measure that.
+- In the 17 families that contain both dark and EC-annotated proteins, ESM-2 nearest neighbours recover the Pfam family for 98% of dark proteins, essentially the same as for characterized ones. No dark-specific deficit was detectable. The design cannot distinguish deficits below the ceiling effect: there are only 4 error events in 340 (3 dark, 1 characterized; Fisher exact on 167/170 vs 169/170, p = 0.62). The family-bootstrap CI [-0.012, +0.035] is shown but the resampling is unreliable with 4 error events in 17 clusters, so no minimum detectable gap is claimed.
+- Ceiling and redundancy: no redundancy filter was applied (as registered). Within a Pfam family, near-identical homologs make 1-NN easy for both groups, so 0.98 reflects close relatives being present, not how well embeddings place a protein with no close relative. The study was not designed to measure that. Gate-derived figures (not recomputed by me): median nearest-neighbour cosine 0.987; 93% of proteins have a neighbour above 0.95 and 44% above 0.99; 31 of 340 proteins have an exact duplicate in the sample; 83% of dark proteins' nearest neighbour is another dark protein, so pooled-NN hits are largely within-group; the 17 families are well-known enzyme and transporter families.
+- Expectation miss: PROTOCOL.md expected about 3,000 proteins; n = 340 because only 17 families meet >= 10 dark and >= 10 characterized. This is a threshold artifact (gate count from the frozen raw files: 384 families with >= 1 of each, 47 at >= 5, 93 at >= 3; 4,932 dark and 118,894 characterized proteins available). The miss is mild evidence that family counts were not examined before lock-1.
 - Sampling limit: families with >= 10 dark and >= 10 EC-annotated reviewed proteins are only 17 of the Pfam families, so this is a small, non-representative slice (families in which uncharacterized and enzyme-annotated proteins coexist). It says nothing about proteins with no Pfam domain, which is where the dark-matter idea mostly lives.
 - "Characterized" means EC-annotated only; non-EC proteins with known function are not in that group.
-- The composition baseline is descriptive; dark 0.706 vs characterized 0.641 is not tested and cannot change the label.
-- Small n: with 17 families the family bootstrap has wide uncertainty on G3's side; G2 is far from its threshold (CI lower bound 0.965 vs 0.40).
+- The composition baseline is descriptive and untested; at 17 families the dark 0.706 vs characterized 0.641 difference is noise and cannot change the label.
+- Small n: G2 is far from its threshold (CI lower bound 0.965 vs 0.40). G1's threshold (3/17 = 0.176) is loose at 17 families: it passes with room but would not catch mild label leakage.
 - Step 1 only: the ledger gives no spec text for DOC-2-079 and this does not cover the full atlas idea.
 
 ## Disclosures
